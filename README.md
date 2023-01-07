@@ -18,7 +18,7 @@ With all this, you can jump to "start the stack" in each tutorial, and follow th
 
 > On the test Windows machine Docker __Docker Swap resources__ were also increased.  The __confluent__ stack alone consumed __12.36GB of RAM__ idle at the 5 min mark.  With the __postgres-mongo-elastic__ stack added __14.04 GB RAM__.
 
-> Side note for VM users... If you are running Docker Desktop for Windows in a VM using nested virtualization WSL2 will not be your friend, and any performance gains will be lost as the VMMem process eats up CPU.  The test machine uses Hyper-V as the Docker Desktop engine as a result with much better results.
+> Side note for VM users... If you are running Docker Desktop for Windows in a VM using nested virtualization WSL2 will not be your friend, and any performance gains will be lost as the VMMem process eats up CPU.  The test machine uses Hyper-V as the Docker Desktop engine to mitigate this issue, with much better results in CPU usage and usability.
 
 ## Stacks
 All stacks are dependent on the __confluent__ stack network, which must be started first.
