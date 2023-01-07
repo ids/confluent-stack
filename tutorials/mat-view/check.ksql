@@ -1,0 +1,3 @@
+SHOW TOPICS;
+
+PRINT 'call-center-db.call-center.calls' FROM BEGINNING;

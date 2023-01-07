@@ -1,0 +1,4 @@
+curl -i -X PUT -H "Accept:application/json" \
+            -H  "Content-Type:application/json" \
+            -d @./debezium-config-cloud.json \
+            http://localhost:8083/connectors/onprem-products-connector/config
