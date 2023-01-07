@@ -14,10 +14,15 @@ So rather then fix their tutorials one off it seemed more practical to roll ever
 
 With all this, you can jump to "start the stack" in each tutorial, and follow the Kafka related commands, which are all OS agnostic.  Everything works on Windows.
 
+> __NOTE:__ The full stack will require a machine with at least 16GB of RAM, 32GB to be useful for development.  64GB is best. Make sure to increase your default __Docker Desktop resource settings__ to at least __16GB of RAM__ and __4 vCPU__, or the stack is likely to experience instability and resource starvation crashes (the ksqldb-server tends to die suddenly).   The stacks were broken into seperate docker compose segments to allow for easier management of machine resources.  They all connect to the same __default__ docker network created by the __confluent__ stack initially.
+
+> On the test Windows machine Docker __Docker Swap resources__ were also increased.  The __confluent__ stack alone consumed __12.36GB of RAM__ idle at the 5 min mark.  With the __postgres-mongo-elastic__ stack added __14.04 GB RAM__.
+
 ## Stacks
+All stacks are dependent on the __confluent__ stack network, which must be started first.
     
 ### confluent 
-the confluent stack, from the downloaded original-cp-stack, modified to pre-load required connectors
+the confluent stack, from the downloaded original-cp-stack, modified to pre-load required connectors.
     
 ### mssql
 joins an mssql db to the confluent stack for CDC testing
@@ -43,9 +48,6 @@ _On Windows, the command to start the stack is slightly different (no hyphen):_
 ```
 docker compose up -d
 ```
-
-
-> __NOTE:__ The full stack will require a machine with at least 16GB of RAM, 32GB would be better.  64GB is recommended, of course. Also make sure to increase your default __Docker Desktop__ resource settings to at least 16GB of RAM and 8 vCPU, or the stack is likely to experience instability and resource starvation crashes.  It was broken out into seperate docker compose segments to allow for easier management of machine resources.
 
 ## Additional Notes
 
